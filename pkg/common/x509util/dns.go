@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 )
-
-var isDNSLabel = regexp.MustCompile(`^[a-zA-Z0-9]([-]*[a-zA-Z0-9])+$`).MatchString
+//wildcarded second group so a single digit can be used, e.g for IPs
+var isDNSLabel = regexp.MustCompile(`^[a-zA-Z0-9]([-]*[a-zA-Z0-9]*)+$`).MatchString
 
 // ValidateDNS validates that provided string is a valid DNS name
 func ValidateDNS(dns string) error {
